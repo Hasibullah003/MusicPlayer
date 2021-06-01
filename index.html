@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="./image/music.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="container ">
+            <div class="row">
+                <h2 id="title">Layegi Rang Mehnat</h2>
+                <h3 id="artist">Hasib</h3>
+                <div class=" img_container">
+                    <img src="./image/white jacket.jpeg" />
+                </div>
+                <audio src="./audio/layegi rang mehnat.mpeg"></audio>
+
+                <!-- Music Controls -->
+
+                <div class="music_controls">
+                    <i class="fas fa-backward" id="prev" title="Previous"></i>
+                    <i class="fas fa-play" id="play" title="Play"></i>
+                    <i class="fas fa-forward" id="next" title="Next"></i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const music = document.querySelector("audio");
+        const play = document.getElementById("play");
+        const title = document.getElementById("title")
+        const artist = document.getElementById("artist")
+        const prev = document.getElementById("prev")
+        const next = document.getElementById("next")
+        const img = document.querySelector("img")
+
+        const songs = [{
+            name : "layegi rang mehnat",
+            title : "layegi rang mehnat",
+            artist : "Hasib",
+        },
+        {
+        
+            name : "Ye mat kaho khuda se",
+            title : "Ye mat kaho khuda se",
+            artist : "Shreya",
+        },
+         {
+            name : "khuda aur mohabbat",
+            title : "khuda aur mohabbat",
+            artist : "Agarwal",
+        },
+        {
+            name : "ye jo teri ada hai",
+            title : "Ye jo teri ada hai",
+            artist : "Singh",
+        },
+         {
+            name : "Rab se hai bas yahi",
+            title : "Rab se hai bas yahi",
+            artist : "Himanshi",
+        },
+        {
+            name : "ek tu hi ignore karti",
+            title : "ek tu hi ignore karti ",
+            artist : "King",
+        },
+        {
+            name : "kaala kaala tara",
+            title : "kaala kaala tara tod ",
+            artist : " myself",
+        },
+        
+        {
+            name : "teaji seat",
+            title : " Teaji seat ",
+            artist : "Kaka",
+        },
+        
+        {
+            name : "ye makhmoor aankhein",
+            title : " ye makhmoor aankhein ",
+            artist : " Hasib",
+        },
+        {
+            name : "in aankhon ko",
+            title : " Dialogue ",
+            artist : "brokenheart",
+        },
+        {
+            name : "Yar tera full Papi",
+            title : " Yar tera full Papi ",
+            artist : "unknown",
+        },
+        {
+            name : "turkish song",
+            title : " turkish song ",
+            artist : "Arabic",
+        },
+        {
+            name : "tujhse dur kyu jaunga",
+            title : " tujhse dur kyu jaunga ",
+            artist : "hasib",
+        },
+        {
+            name : "sarkar to sadi apni",
+            title : " sarkar to sadi apni ",
+            artist : "The King",
+        },
+        {
+            name : "tera ek ishara",
+            title : " tera ek ishara ",
+            artist : "Raja",
+        },
+        {
+            name : "tarasti hai nigahein",
+            title : " tarasti hai nigahein ",
+            artist : "Unknown",
+        },
+        {
+            name : "kismat se ladne",
+            title : " Motivational ",
+            artist : "Motivation",
+        },
+    ];
+
+
+        let isPlay = false;
+
+        const playMusic = () => {
+            isPlay = true;
+            music.play();
+            play.classList.replace("fa-play", "fa-pause")
+            img.classList.add("anime")
+        };
+
+        const pauseMusic = () => {
+            isPlay = false;
+            music.pause();
+            play.classList.replace("fa-pause", "fa-play")
+            img.classList.remove("anime")
+        };
+
+        play.addEventListener("click", () => {
+            isPlay ? pauseMusic() : playMusic();
+        });
+  
+    //   music change
+
+    const changeSong = (songs) =>{
+        title.textContent = songs.title;
+        artist.textContent = songs.artist;
+        music.src = "./audio/" + songs.name + ".mpeg";
+        img.src = "./image/" + songs.name+".jpg";
+    };
+
+    songIndex = 0;
+
+    const nextSong = () =>{
+        songIndex = (songIndex + 1)% songs.length;
+        changeSong(songs[songIndex]);
+        playMusic();
+    }
+
+    const prevSong = () =>{
+        songIndex = (songIndex -1 + songs.length) % songs.length;
+        changeSong(songs[songIndex]);
+        playMusic();
+    }
+
+    next.addEventListener("click" , nextSong);
+    prev.addEventListener("click" , prevSong);
+    changeSong(songs[0]);
+    </script>
+</body>
+
+</html>

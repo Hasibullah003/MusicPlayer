@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 63%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f6f6f6;
+    display: grid;
+    place-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.container{
+    width: 35rem;
+    height: 55rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0 1.2rem 3rem 0.5rem rgba(0,0,0,0.2);
+    /* padding: 3rem; */
+    text-align: center;
+}
+.container{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+    color: black;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 0.2rem 0.3rem black;
+}
+.container #title{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.3rem;
+    color: black;
+    margin: 2rem 0 0.5 0;
+    font-size: 25px;
+    font-weight: 500;
+    text-shadow: 0 0.3rem 0.5rem rgb(163, 108, 108);
+}
+.container #artist{
+    letter-spacing: 0.1rem;
+    color: #e4e2e2;
+    text-transform: capitalize;
+    font-size: 2rem;
+    margin-top: 3rem;
+    font-weight: 300;
+}
+.img_container{
+    width: 25rem;
+    height: 25rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 25px 5px rgb(156, 153, 153);
+}
+.music_controls{
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.music_controls .fas{
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5em black);
+}
+
+.music_controls .fas:hover{
+    color: rgb(95, 88, 88);
+}
+.music_controls .fa-play:hover{
+    background-color: whitesmoke;
+}
+.anime{
+    animation: rotatePlayer 3s linear infinite;
+}
+@keyframes rotatePlayer{
+    from { transform: rotate(0deg);}
+    to { transform: rotate(360deg);}
+}
